@@ -6,7 +6,16 @@
 /*   By: mmetzger <mmetzger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 15:19:01 by mmetzger          #+#    #+#             */
-/*   Updated: 2022/02/21 15:20:20 by mmetzger         ###   ########.fr       */
+/*   Updated: 2022/02/22 09:18:48 by mmetzger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+int ft_isalpha(char c)
+{
+    if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+    return (1);
+    else
+    {
+        return(0);
+    }
+}

@@ -6,7 +6,16 @@
 /*   By: mmetzger <mmetzger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 15:19:09 by mmetzger          #+#    #+#             */
-/*   Updated: 2022/02/21 15:20:16 by mmetzger         ###   ########.fr       */
+/*   Updated: 2022/02/22 09:24:09 by mmetzger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+int ft_isprint(char c)
+{
+    if (c >= 33 && c <= 126)
+    return (1);
+    else
+    {
+        return(0);
+    }
+}

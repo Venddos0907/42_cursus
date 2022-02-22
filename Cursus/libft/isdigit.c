@@ -6,7 +6,16 @@
 /*   By: mmetzger <mmetzger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 15:19:06 by mmetzger          #+#    #+#             */
-/*   Updated: 2022/02/21 15:20:19 by mmetzger         ###   ########.fr       */
+/*   Updated: 2022/02/22 09:19:51 by mmetzger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+int ft_isdigit(char c)
+{
+    if (c >= '0' && c <= '9')
+    return (1);
+    else
+    {
+        return(0);
+    }
+}
