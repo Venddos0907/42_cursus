@@ -6,31 +6,66 @@
 /*   By: mmetzger <mmetzger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 15:18:47 by mmetzger          #+#    #+#             */
-/*   Updated: 2022/02/27 12:14:48 by mmetzger         ###   ########.fr       */
+/*   Updated: 2022/02/28 14:10:54 by mmetzger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
-int		ft_atoi(const char *str)
+void	ft_putchar(char c)
 {
-	size_t				index;
-	int					negative;
-	unsigned long int	result;
+	write(1, &c, 1);
+}
 
-	index = 0;
-	negative = 1;
-	result = 0;
-	while (IS_WSPACE(str[index]))
-		index++;
-	if (str[index] == '+' || str[index] == '-')
-		if (str[index++] == '-')
-			negative *= -1;
-	while (ft_isdigit(str[index]))
+void	ft_putnbr(int nb)
+{
+	int num;
+
+	num = nb;
+	if (num < 0)
 	{
-		result *= 10;
-		result += str[index] - '0';
-		index++;
+		num *= -1;
+		ft_putchar('-');
 	}
-	return (result * negative);
+	if (num > 9)
+	{
+		ft_putnbr(num / 10);
+	}
+	ft_putchar(num % 10 + 48);
+}
+
+int	atoi(char *str)
+{
+	int neg;
+	int num;
+	int i;
+
+	i = 0;
+	neg = 1;
+	num = 0;
+	while (str[i] <= ' ')
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+		{
+			neg *= -1;
+		}
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		num = num * 10 + (str[i] - 48);
+		i++;
+	}
+	return (num * neg);
+}
+
+int	main(int argc, char **argv)
+{
+	int j;
+
+	j = atoi(argv[1]);
+	ft_putnbr(j);
+	return (0);
 }
