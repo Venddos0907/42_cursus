@@ -6,7 +6,7 @@
 /*   By: mmetzger <mmetzger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 15:18:47 by mmetzger          #+#    #+#             */
-/*   Updated: 2022/02/28 14:10:54 by mmetzger         ###   ########.fr       */
+/*   Updated: 2022/02/28 15:47:07 by mmetzger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ int	main(int argc, char **argv)
 {
 	int j;
 
+	if (argc == 2)
 	j = atoi(argv[1]);
 	ft_putnbr(j);
 	return (0);
