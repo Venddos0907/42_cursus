@@ -6,7 +6,7 @@
 /*   By: mmetzger <mmetzger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 15:19:32 by mmetzger          #+#    #+#             */
-/*   Updated: 2022/02/28 12:34:51 by mmetzger         ###   ########.fr       */
+/*   Updated: 2022/02/28 14:00:34 by mmetzger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,21 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t index;
+	size_t srcsize;
+	size_t i;
 
-	CHECK_PTR_DEF(dst, 0);
-	CHECK_PTR_DEF(src, 0);
-	index = 0;
+	if (!dst || !src)
+		return (0);
+	srcsize = ft_strlen(src);
+	i = 0;
 	if (dstsize != 0)
 	{
-		while (src[index] != '\0' && index < (dstsize - 1))
+		while (src[i] != '\0' && i < (dstsize - 1))
 		{
-			dst[index] = src[index];
-			index++;
+			dst[i] = src[i];
+			i++;
 		}
-		dst[index] = '\0';
+		dst[i] = '\0';
 	}
-	return (ft_strlen(src));
+	return (srcsize);
 }
