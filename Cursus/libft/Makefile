@@ -6,7 +6,7 @@
 #    By: mmetzger <mmetzger@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/28 14:31:23 by mmetzger          #+#    #+#              #
-#    Updated: 2022/02/28 14:36:04 by mmetzger         ###   ########.fr        #
+#    Updated: 2022/03/02 15:31:30 by mmetzger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,9 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	@ar rus $(NAME) $(OBJS)
 
+bonus: $(NAME) $(B_OBJS)
+	@ar rus $(NAME) $(B_OBJS)
+
 clean:
 	rm -f $(OBJS)
 	rm -f $(B_OBJS)
@@ -39,3 +42,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all bonus clean fclean re
+
