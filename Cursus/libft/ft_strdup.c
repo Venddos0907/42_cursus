@@ -6,20 +6,27 @@
 /*   By: mmetzger <mmetzger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 15:21:18 by mmetzger          #+#    #+#             */
-/*   Updated: 2022/02/28 12:34:24 by mmetzger         ###   ########.fr       */
+/*   Updated: 2022/03/02 11:23:56 by mmetzger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+char    *ft_strdup(const char *s)
 {
-	size_t	length;
-	char	*duplicate;
+    char *dup;
+    int i;
 
-	length = ft_strlen(s1);
-	CHECK_PTR(duplicate = ft_calloc(length + 1, sizeof(char)));
-	ft_memcpy(duplicate, s1, length);
-	duplicate[length] = '\0';
-	return (duplicate);
+    i = 0;
+    while (s[i] != '\0')
+        i++;
+    dup = malloc(sizeof(char*) * i);
+    i = 0;
+    while (s[i] != '\0')
+    {
+        dup[i] = s[i];
+        i++;
+    }
+    dup[i] = '\0';
+    return (dup);
 }

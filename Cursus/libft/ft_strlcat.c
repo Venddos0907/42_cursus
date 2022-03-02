@@ -6,37 +6,27 @@
 /*   By: mmetzger <mmetzger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 15:19:27 by mmetzger          #+#    #+#             */
-/*   Updated: 2022/02/24 16:14:46 by mmetzger         ###   ########.fr       */
+/*   Updated: 2022/03/02 11:24:44 by mmetzger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+int ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	char	*dest;
-	char	*source;
-	size_t	dst_length;
-	size_t	remaing;
+	size_t c;
+	size_t d;
 
-	dest = dst;
-	source = (char *)src;
-	remaing = dstsize;
-	while (remaing-- != 0 && *dest != '\0')
-		dest++;
-	dst_length = dest - dst;
-	remaing = dstsize - dst_length;
-	if (remaing == 0)
-		return (dst_length + ft_strlen(source));
-	while (*source != '\0')
+	if (dstsize <= ft_strlen(dst))
+		return (dstsize + ft_strlen(src));
+	c = ft_strlen(dst);
+	d = 0;
+	while (src[d] != '\0' && c + 1 < dstsize)
 	{
-		if (remaing > 1)
-		{
-			*dest++ = *source;
-			remaing--;
-		}
-		source++;
+		dst[c] = src[d];
+		c++;
+		d++;
 	}
-	*dest = '\0';
-	return (dst_length + (source - src));
+	dst[c] = '\0';
+	return (ft_strlen(dst) + ft_strlen(&src[d]));
 }

@@ -6,29 +6,14 @@
 /*   By: mmetzger <mmetzger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 15:19:29 by mmetzger          #+#    #+#             */
-/*   Updated: 2022/02/28 12:31:49 by mmetzger         ###   ########.fr       */
+/*   Updated: 2022/03/02 11:23:25 by mmetzger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char    *ft_strchr(const char *str, int x)
 {
-	size_t	index;
-	int		current;
-	char	*last;
-
-	index = 0;
-	last = NULL;
-	while (1)
-	{
-		current = s[index];
-		if (current == c)
-			last = (char *)(s + index);
-		if (current == '\0')
-			break ;
-		index++;
-	}
-	return (last);
+    return (ft_memchr(str, x, ft_strlen((char*)str) + 1));
 }
